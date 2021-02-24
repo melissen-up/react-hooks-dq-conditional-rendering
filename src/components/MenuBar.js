@@ -1,6 +1,6 @@
 import React from "react";
 
-function MenuBar(props) {
+function MenuBar({chosenPage, setChosenPage}) {
   /*
 
   The 'span' tags below are the menu items. Think about the way a menu 
@@ -12,25 +12,30 @@ function MenuBar(props) {
 
   */
 
+  function clickHandler(event) {
+    console.log(event);
+  }
+
   return (
     <div className="ui four item menu">
-      <span className="item active">
+      <span className={chosenPage === "Profile" ? "item active" : "item"} onClick={() => setChosenPage("Profile")}>
         <i className="user large icon" />
       </span>
 
-      <span className="item">
+      <span className={chosenPage === "Photos" ? "item active" : "item"} onClick={() => setChosenPage("Photos")}>
+
         <i className="photo large icon" />
       </span>
 
-      <span className="item">
+      <span className={chosenPage === "Cocktails" ? "item active" : "item"} onClick={() => setChosenPage("Cocktails")}>
         <i className="cocktail large icon" />
       </span>
 
-      <span className="item">
+      <span className={chosenPage === "Pokemon" ? "item active" : "item"} onClick={() => setChosenPage("Pokemon")}>
         <i className=" themeisle large icon" />
       </span>
     </div>
   );
-}
+  }
 
 export default MenuBar;
